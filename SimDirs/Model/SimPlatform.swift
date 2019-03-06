@@ -20,7 +20,7 @@ class SimPlatform: OutlineProvider {
 			let deviceURL = libraryURL.appendingPathComponent("Developer/CoreSimulator/Devices")
 			
 			if let dirEnumerator = fileMgr.enumerator(at: deviceURL, includingPropertiesForKeys: nil, options: [ .skipsSubdirectoryDescendants, .skipsHiddenFiles ], errorHandler: nil) {
-				let dirURLs = dirEnumerator.allObjects.flatMap { $0 as? URL }
+				let dirURLs = dirEnumerator.allObjects.compactMap { $0 as? URL }
 				
 				for baseURL in dirURLs {
 					let deviceURL			= baseURL.appendingPathComponent("device.plist")

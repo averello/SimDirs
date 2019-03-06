@@ -58,35 +58,40 @@ class DetailController: NSViewController, NSTableViewDataSource, NSTableViewDele
 	// MARK: - NSTableViewDataSource -
 	
 	func numberOfRows(in tableView: NSTableView) -> Int {
-		return self.selectedProvider.properties.count ?? 0
+		return self.selectedProvider.properties.count
 	}
 
 	// MARK: - NSTableViewDelegate -
 
 	func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
 		let selectedProperty	= self.selectedProvider.properties[row]
-		let columnIdentifier	= tableColumn?.identifier ?? ""
+		let columnIdentifier	= tableColumn?.identifier.rawValue ?? ""
 		let view				: NSView?
 		
 		switch columnIdentifier {
 			case "value":
 				switch selectedProperty.value {
 					case .text(let text):
-						view = tableView.make(withIdentifier: "PropertyValueCell", owner: self)
+						view = tableView.makeView(withIdentifier: convertToNSUserInterfaceItemIdentifier("PropertyValueCell"), owner: self)
 						(view as? NSTableCellView)?.textField?.stringValue = text
 					
 					case .location(let url):
-						view = tableView.make(withIdentifier: "PropertyActionCell", owner: self)
+						view = tableView.makeView(withIdentifier: convertToNSUserInterfaceItemIdentifier("PropertyActionCell"), owner: self)
 						if let actionCell = view as? ActionCell {
-							actionCell.action = { NSWorkspace.shared().activateFileViewerSelecting([url]) }
+							actionCell.action = { NSWorkspace.shared.activateFileViewerSelecting([url]) }
 						}
 				}
 			
 			default:
-				view = tableView.make(withIdentifier: "PropertyTitleCell", owner: self)
+				view = tableView.makeView(withIdentifier: convertToNSUserInterfaceItemIdentifier("PropertyTitleCell"), owner: self)
 				(view as? NSTableCellView)?.textField?.stringValue = selectedProperty.title
 		}
 		
 		return view
 	}
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToNSUserInterfaceItemIdentifier(_ input: String) -> NSUserInterfaceItemIdentifier {
+	return NSUserInterfaceItemIdentifier(rawValue: input)
 }

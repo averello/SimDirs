@@ -56,7 +56,7 @@ class SourceController: NSViewController, NSOutlineViewDataSource, NSOutlineView
 			image = outlineProvider.outlineImage
 		}
 		
-		if let outlineCell = outlineView.make(withIdentifier: image != nil ? "ImageCell" : "TextCell", owner: self) as? NSTableCellView {
+		if let outlineCell = outlineView.makeView(withIdentifier: convertToNSUserInterfaceItemIdentifier(image != nil ? "ImageCell" : "TextCell"), owner: self) as? NSTableCellView {
 			outlineCell.textField?.stringValue = title
 			outlineCell.imageView?.image = image
 			view = outlineCell
@@ -88,4 +88,9 @@ class SourceController: NSViewController, NSOutlineViewDataSource, NSOutlineView
 		self.platforms = SimPlatform.scan()
 		self.outlineView.reloadData()
 	}
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToNSUserInterfaceItemIdentifier(_ input: String) -> NSUserInterfaceItemIdentifier {
+	return NSUserInterfaceItemIdentifier(rawValue: input)
 }

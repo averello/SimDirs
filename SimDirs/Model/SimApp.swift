@@ -68,7 +68,7 @@ class SimApp: OutlineProvider, PropertyProvider {
 		
 		if !bundleURL.lastPathComponent.contains(".app") {
 			if let dirEnumerator = fileMgr.enumerator(at: bundleURL, includingPropertiesForKeys: nil, options: [ .skipsSubdirectoryDescendants, .skipsHiddenFiles ], errorHandler: nil) {
-				let dirURLs = dirEnumerator.allObjects.flatMap { $0 as? URL }
+				let dirURLs = dirEnumerator.allObjects.compactMap { $0 as? URL }
 				
 				for appURL in dirURLs {
                     if bundleURL.lastPathComponent.contains(".app") {
