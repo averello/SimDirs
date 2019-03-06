@@ -164,7 +164,7 @@
         <scene sceneID="95M-fv-kdk">
             <objects>
                 <viewController id="iYR-B6-n1S" customClass="SourceController" customModule="SimDirs" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="MGo-Qu-2zB">
+                    <view key="view" appearanceType="aqua" id="MGo-Qu-2zB">
                         <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -434,6 +434,7 @@
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="Jjs-nn-o9R" firstAttribute="centerY" secondItem="q5G-P3-EGm" secondAttribute="centerY" id="njz-TZ-q0l"/>
+                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Jjs-nn-o9R" secondAttribute="trailing" constant="10" id="sqH-FP-gEq"/>
                                                                 <constraint firstItem="Jjs-nn-o9R" firstAttribute="leading" secondItem="q5G-P3-EGm" secondAttribute="leading" id="xBT-kv-Yby"/>
                                                             </constraints>
                                                             <connections>
@@ -469,6 +470,7 @@
                             <constraint firstItem="cnN-cy-Bac" firstAttribute="leading" secondItem="JAP-se-fpu" secondAttribute="trailing" constant="16" id="Mp2-4Z-5Wj"/>
                             <constraint firstItem="0W4-aZ-Ae5" firstAttribute="leading" secondItem="UMm-Xy-nBF" secondAttribute="leading" constant="20" symbolic="YES" id="NxN-dt-Qik"/>
                             <constraint firstItem="JAP-se-fpu" firstAttribute="leading" secondItem="UMm-Xy-nBF" secondAttribute="leading" constant="20" symbolic="YES" id="Tpt-YG-xYq"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0W4-aZ-Ae5" secondAttribute="trailing" constant="10" id="Wp1-gw-PeU"/>
                             <constraint firstAttribute="bottom" secondItem="JAP-se-fpu" secondAttribute="bottom" id="e1L-p4-1Hj"/>
                             <constraint firstItem="cnN-cy-Bac" firstAttribute="top" secondItem="UMm-Xy-nBF" secondAttribute="top" constant="20" symbolic="YES" id="fKO-Jw-6co"/>
                             <constraint firstItem="0W4-aZ-Ae5" firstAttribute="top" secondItem="UMm-Xy-nBF" secondAttribute="top" constant="20" symbolic="YES" id="g8h-kr-Or3"/>
