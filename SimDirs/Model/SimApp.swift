@@ -71,7 +71,7 @@ class SimApp: OutlineProvider, PropertyProvider {
 				let dirURLs = dirEnumerator.allObjects.compactMap { $0 as? URL }
 				
 				for appURL in dirURLs {
-                    if bundleURL.lastPathComponent.contains(".app") {
+                    if appURL.lastPathComponent.contains(".app") {
                         self.validatedBundlePath = appURL.path
                         break
                     }
