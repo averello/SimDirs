@@ -78,7 +78,9 @@ class DetailController: NSViewController, NSTableViewDataSource, NSTableViewDele
             case .location(let url):
                 view = tableView.makeView(withIdentifier: convertToNSUserInterfaceItemIdentifier("PropertyActionCell"), owner: self)
                 if let actionCell = view as? ActionCell {
-                    actionCell.action = { NSWorkspace.shared.activateFileViewerSelecting([url]) }
+                    actionCell.action = {
+                        NSWorkspace.shared.selectFile(nil, inFileViewerRootedAtPath: url.path)
+                    }
                 }
             }
             
