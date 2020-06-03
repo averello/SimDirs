@@ -9,10 +9,10 @@
 import Cocoa
 
 class DetailTableView: NSTableView {
-	override func drawGrid(inClipRect clipRect: NSRect) {
-		let lastRowRect		= self.rect(ofRow: self.numberOfRows - 1)
-		let adjClipRect		= NSRect(x: 0.0, y: 0.0, width: lastRowRect.width, height: lastRowRect.maxY)
-	
-		super.drawGrid(inClipRect: NSIntersectionRect(clipRect, adjClipRect))
-	}
+    override func drawGrid(inClipRect clipRect: NSRect) {
+        let lastRowRect		= self.rect(ofRow: self.numberOfRows - 1)
+        let adjClipRect		= NSRect(x: 0.0, y: 0.0, width: lastRowRect.width, height: lastRowRect.maxY)
+        
+        super.drawGrid(inClipRect: NSIntersectionRect(clipRect, adjClipRect))
+    }
 }

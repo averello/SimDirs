@@ -9,10 +9,10 @@
 import Cocoa
 
 class ActionCell: NSView {
-	@IBOutlet weak var actionButton	: NSButton!
-	var action						: (() -> ())?
-	
-	@IBAction func executeAction(_ sender: AnyObject) {
-		action?()
-	}
+    @IBOutlet weak var actionButton	: NSButton!
+    var action						: (() -> ())?
+    
+    @IBAction func executeAction(_ sender: AnyObject) {
+        action?()
+    }
 }

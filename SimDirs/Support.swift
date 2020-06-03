@@ -10,19 +10,19 @@
 import Foundation
 
 extension Array {
-	mutating func match(_ predicate: (Element) -> Bool, orMake: () -> Element) -> Element {
-		let element	: Element
-		
+    mutating func match(_ predicate: (Element) -> Bool, orMake: () -> Element) -> Element {
+        let element	: Element
+        
         if let index = self.firstIndex(where: predicate) {
-			element = self[index]
-		}
-		else {
-			element = orMake()
-			self.append(element)
-		}
-		
-		return element
-	}
+            element = self[index]
+        }
+        else {
+            element = orMake()
+            self.append(element)
+        }
+        
+        return element
+    }
 }
 
 extension Collection {
@@ -32,7 +32,7 @@ extension Collection {
 }
 
 extension String {
-	var validPath	: Bool { return FileManager.default.fileExists(atPath: self) }
+    var validPath	: Bool { return FileManager.default.fileExists(atPath: self) }
 }
 
 extension URL {
@@ -40,17 +40,17 @@ extension URL {
 }
 
 extension PropertyListSerialization {
-	class func propertyListWithURL(_ url: URL) -> [String : AnyObject]? {
-		guard let plistData	= try? Data(contentsOf: url) else { return nil }
-		let plist			: [String : AnyObject]?
-		
-		do {
-			plist = try PropertyListSerialization.propertyList(from: plistData, options: PropertyListSerialization.MutabilityOptions(), format: nil) as? [String : AnyObject]
-		} catch {
-			plist = nil
-		}
-		
-		return plist
-	}
+    class func propertyListWithURL(_ url: URL) -> [String : AnyObject]? {
+        guard let plistData	= try? Data(contentsOf: url) else { return nil }
+        let plist			: [String : AnyObject]?
+        
+        do {
+            plist = try PropertyListSerialization.propertyList(from: plistData, options: PropertyListSerialization.MutabilityOptions(), format: nil) as? [String : AnyObject]
+        } catch {
+            plist = nil
+        }
+        
+        return plist
+    }
 }
 
