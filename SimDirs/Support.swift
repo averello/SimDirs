@@ -13,7 +13,7 @@ extension Array {
 	mutating func match(_ predicate: (Element) -> Bool, orMake: () -> Element) -> Element {
 		let element	: Element
 		
-		if let index = self.index(where: predicate) {
+        if let index = self.firstIndex(where: predicate) {
 			element = self[index]
 		}
 		else {
